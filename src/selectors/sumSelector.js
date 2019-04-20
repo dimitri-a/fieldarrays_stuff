@@ -1,13 +1,12 @@
-import { createSelector } from "reselect";
 import { sum } from "../calculations";
+import { formValueSelector } from "redux-form";
+const selector = formValueSelector("myForm");
 
 const sumAmounts = state =>{
-    debugger
-    if (!state) return;
 
-    if (!state.amount1 || !state.amount2)
-  return  sum(state.amount1,state.amount2);
+    const amount1 = selector(state, "amount1");
+    const amount2 = selector(state, "amount2");
+    return sum(amount1,amount2)
 };
-export default createSelector(
-    sumAmounts
-);
+
+export default sumAmounts;
