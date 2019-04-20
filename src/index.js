@@ -4,7 +4,7 @@ import './index.css';
 import FormContainer from './Forms/FormContainer';
 import showResults from "./showResults";
 import * as serviceWorker from './serviceWorker';
-import { Values } from "redux-form-website-template";
+
 import { Provider } from "react-redux";
 import store from "./store";
 
@@ -23,7 +23,7 @@ ReactDOM.render(
       <div style={{ padding: 15 }}>
         <h2>Selecting Form Values Example</h2>
         <FormContainer onSubmit={showResults} />
-        <Values form="selectingFormValues" />
+
       </div>
     </Provider>,
     rootEl
