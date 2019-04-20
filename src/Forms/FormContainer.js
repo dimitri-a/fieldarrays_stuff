@@ -19,6 +19,34 @@ export class FormContainer extends React.Component {
           component="input"
           label="Amount 1"
         />
+
+        <Field
+          name="amount3"
+          type="number"
+          component="input"
+          label="Amount 3"
+        />
+
+        <Field
+          name="amount4"
+          type="number"
+          component="input"
+          label="Amount 4"
+        />
+
+
+
+
+
+<Field
+          name="amount4"
+          type="number"
+          component="label"
+          label="Sum of amount1 and 2"
+        />
+
+
+
       </form>
     );
   }
@@ -26,13 +54,13 @@ export class FormContainer extends React.Component {
 
 FormContainer = reduxForm({
   form: "myForm" // a unique identifier for this form
-})(FormContainer)
+})(FormContainer);
 
-const selector = formValueSelector('myForm'); 
+const selector = formValueSelector("myForm");
 
 FormContainer = connect(state => {
-      const amount1 = selector(state, "amount1");
-      return {amount1}
-    })(FormContainer)
+  const amount1 = selector(state, "amount1");
+  return { amount1 };
+})(FormContainer);
 
- export default FormContainer;
+export default FormContainer;
