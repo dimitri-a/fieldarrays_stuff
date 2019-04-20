@@ -13,28 +13,24 @@ export class FormContainer extends React.Component {
           component="input"
           label="Amount 1"
         />
-
         <Field
           name="amount2"
           type="number"
           component="input"
           label="Amount 1"
         />
-
         <Field
           name="amount3"
           type="number"
           component="input"
           label="Amount 3"
         />
-
         <Field
           name="amount4"
           type="number"
           component="input"
           label="Amount 4"
         />
-
         <Field
           name="amount4"
           type="number"
@@ -56,7 +52,7 @@ FormContainer = connect(state => {
   const amount1 = selector(state, "amount1");
   const amount2 = selector(state, "amount2");
   const sum = sumAmounts(amount1, amount2);
-  return { amount1 };
+  return { amount1, sum };
 })(FormContainer);
 
 export default FormContainer;
