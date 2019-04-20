@@ -1,11 +1,11 @@
 import React from "react";
 import { Field, reduxForm, formValueSelector } from "redux-form";
 import { connect } from "react-redux";
-import sumAmounts from "../selectors/sumSelector";
+import * as selectors from "../selectors/sumSelector";
 
 export class FormContainer extends React.Component {
   render() {
-    const {sum} = this.props;
+    const { sum,am1,am2 } = this.props;
     return (
       <form>
         <Field
@@ -32,14 +32,9 @@ export class FormContainer extends React.Component {
           component="input"
           label="Amount 4"
         />
-        <Field
-          name="amount4"
-          type="number"
-          component="label"
-          label="bla"
-        />
-
-{sum}
+        Total sum: {sum}<br/>
+        amount1: {am1}
+        amount2: {am2}
       </form>
     );
   }
@@ -49,20 +44,12 @@ FormContainer = reduxForm({
   form: "myForm" // a unique identifier for this form
 })(FormContainer);
 
-// const selector = formValueSelector("myForm");
-
-// FormContainer = connect(state => {
-//   const amount1 = selector(state, "amount1");
-//   const amount2 = selector(state, "amount2");
-//   const sum = sumAmounts(amount1, amount2);
-//   return { amount1, amount2, sum };
-// })(FormContainer);
-
-// export default FormContainer;
-
 const mapStateToProps = state => {
   return {
-    sum: sumAmounts(state),
+    sum: selectors.sumAmounts(state),
+    am1: selectors.getAmount1(state),
+    am2:selectors.getAmount2(state)
+
   };
 };
 

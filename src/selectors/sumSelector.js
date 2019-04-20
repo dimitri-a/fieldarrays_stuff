@@ -2,11 +2,11 @@ import { sum } from "../calculations";
 import { formValueSelector } from "redux-form";
 const selector = formValueSelector("myForm");
 
-const sumAmounts = state =>{
+export const getAmount1 = state => selector(state, "amount1");
+export const getAmount2 = state =>selector(state,"amount2")
 
-    const amount1 = selector(state, "amount1");
-    const amount2 = selector(state, "amount2");
-    return sum(amount1,amount2)
+export const sumAmounts = state => {
+
+    const test = sum(getAmount1(state),getAmount2(state))
+    return test;
 };
-
-export default sumAmounts;
