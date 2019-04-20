@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import FormContainer from './Forms/FormContainer';
 import showResults from "./showResults";
-import * as serviceWorker from './serviceWorker';import { Values } from "redux-form-website-template";
+import * as serviceWorker from './serviceWorker';
+import { Values } from "redux-form-website-template";
+import { Provider } from "react-redux";
+import store from "./store";
 
 // ReactDOM.render(<App />, document.getElementById('root'));
 
