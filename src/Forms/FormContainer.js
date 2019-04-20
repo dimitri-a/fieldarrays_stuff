@@ -52,7 +52,7 @@ FormContainer = connect(state => {
   const amount1 = selector(state, "amount1");
   const amount2 = selector(state, "amount2");
   const sum = sumAmounts(amount1, amount2);
-  return { amount1, sum };
+  return { amount1, amount2, sum };
 })(FormContainer);
 
 export default FormContainer;
