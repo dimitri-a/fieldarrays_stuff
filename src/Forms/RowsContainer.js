@@ -3,10 +3,6 @@ import RowComponent from "./RowComponent";
 import * as selectors from "../selectors/sumSelector";
 import {
   Field,
-  FieldArray,
-  reduxForm,
-  getFormValues,
-  change
 } from "redux-form";
 import { connect } from "react-redux";
 

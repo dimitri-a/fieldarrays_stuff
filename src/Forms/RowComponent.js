@@ -1,5 +1,5 @@
 import React from "react";
-import { Field, reduxForm, formValueSelector } from "redux-form";
+import { Field } from "redux-form";
 
 const RowsComponent = ({ fields, index, row }) => (
   <li key={index}>
@@ -8,6 +8,7 @@ const RowsComponent = ({ fields, index, row }) => (
     <button
         type="button"
         title="Remove Row"
+        label="remove row"
         onClick={() => fields.remove(index)}
       />
     
