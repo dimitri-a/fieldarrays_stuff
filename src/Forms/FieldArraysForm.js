@@ -26,7 +26,7 @@ class FieldArraysForm extends Component {
   }
 }
 
-export default FieldArraysForm
+
 
 // const mapStateToProps = state => {
 //   return {
@@ -39,9 +39,10 @@ export default FieldArraysForm
 //   change
 // };
 
-// export default reduxForm({
-//   form: "fieldArraysForm"
-// })(
+export default reduxForm({
+  form: "fieldArraysForm"
+})( FieldArraysForm)
+
 //   connect(
 //     mapStateToProps,
 //     mapDispatchToProps

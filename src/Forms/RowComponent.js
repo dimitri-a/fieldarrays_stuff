@@ -1,7 +1,7 @@
 import {React,Fragment} from 'react'
 import { Field, reduxForm, formValueSelector } from "redux-form";
 
-const RowsComponent = ({ fields, meta: { error, submitFailed },t1 }) => (
+const RowsComponent = ({index,row}) => (
     <Fragment>
       <ul>
         <li>
