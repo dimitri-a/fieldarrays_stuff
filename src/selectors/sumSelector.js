@@ -21,31 +21,3 @@ export const totalAmount1 = createSelector(
     (sum,item) => sum +Number(item.amount1),0)
 )
 
-
-// creates =>{
-//     getAllItems,
-//     getAmount1.reduce(row => row.amount1)
-    
-//     }
-
-// export const getMaxDistributionSum = createSelector(
-//     getShareholderDistribution,
-//     shareholderdistribution =>
-//       shareholderdistribution &&
-//       shareholderdistribution
-//         .filter(s => s.name && s.name === true)
-//         .reduce(
-//           (sum, item) => sum + Number(item.ownership && item.ownership !== 0 ? item.ownership : 0),
-//           0
-//         )
-//   );
-  
-
-
-// export const getAllShareHolders = state =>
-//   state.mockData &&
-//   state.mockData.BusinessFinancials &&
-//   state.mockData.BusinessFinancials.shareHolder &&
-//   state.mockData.BusinessFinancials.shareHolder.all
-//     ? state.mockData.BusinessFinancials.shareHolder.all
-//     : undefined;
