@@ -8,7 +8,7 @@ import { connect } from "react-redux";
 
 class RowsContainer extends React.Component {
   render() {
-    const { fields } = this.props;
+    const { fields ,t1,testItems} = this.props;
     debugger
 
     return (
@@ -23,13 +23,10 @@ class RowsContainer extends React.Component {
         </ul>
 
         
-        Total amount1
-        <Field
-          name="totalAmount2"
-          type="number"
-          component="input"
-          label="Total Amount 2"
-        />
+        Total amount1 = {t1}
+
+        testItems: {testItems}
+
 
       </Fragment>
     );
@@ -39,8 +36,8 @@ class RowsContainer extends React.Component {
 const mapStateToProps = state => {
   return {
     sum: selectors.sumAmounts(state),
-    initialValues: [{ amount1: 1 }]
-    // t1: selectors.totalAmount1(state)
+    t1: selectors.totalAmount1(state),
+    testItems:selectors.getAllItems(state)
   };
 };
 
