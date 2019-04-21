@@ -1,50 +1,33 @@
-import {React,Fragment} from 'react'
+import React from "react";
 import { Field, reduxForm, formValueSelector } from "redux-form";
 
-const RowsComponent = ({index,row}) => (
-    <Fragment>
-      <ul>
-        <li>
-          <button type="button" onClick={() => fields.push({})}>
-            Add Row
-          </button>
-          {submitFailed && error && <span>{error}</span>}
-        </li>
-        {fields.map((item, index) => (
-          <li key={index}>
-            1
-            <button
-              type="button"
-              title="Remove Row"
-              onClick={() => fields.remove(index)}
-            />
-            <h4>Rownr #{index + 1}</h4>
-            <Field
-              name={`${item}.amount1`}
-              type="number"
-              component="input"
-              label="Amount 1"
-            />
-            <Field
-              name={`${item}.amount2`}
-              type="number"
-              component="input"
-              label="Amount 2"
-            />
-          </li>
-        ))}
-      </ul>
-  
-    
-    Total amount1 = {t1}
-  
-      <Field
-        name="totalAmount2"
-        type="number"
-        component="input"
-        label="Total Amount 2"
-      />
-    </Fragment>
-  );
+const RowsComponent = ({ fields, index, row }) => (
+  <li key={index}>
 
-  export default RowsComponent;
+    <h4>Rownr #{index + 1}</h4>
+    <button
+        type="button"
+        title="Remove Row"
+        onClick={() => fields.remove(index)}
+      />
+    
+    <Field
+      name={`${row}.amount1`}
+      type="number"
+      component="input"
+      label="Amount 1"
+    />
+    <Field
+      name={`${row}.amount2`}
+      type="number"
+      component="input"
+      label="Amount 2"
+    />
+  </li>
+);
+
+export default RowsComponent;
+
+// eslint-disable-next-line no-lone-blocks
+
+// eslint-disable-next-line no-lone-blocks

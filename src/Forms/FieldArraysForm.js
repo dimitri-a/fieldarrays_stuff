@@ -18,9 +18,6 @@ class FieldArraysForm extends Component {
     return (
       <form onSubmit={handleSubmit}>
         <FieldArray name="items" component={RowsContainer} />
-        <div>
-          <button type="submit">Submit</button>
-        </div>
       </form>
     );
   }
