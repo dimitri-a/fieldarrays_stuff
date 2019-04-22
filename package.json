@@ -10,7 +10,8 @@
     "redux": "^4.0.1",
     "redux-form": "^8.2.0",
     "redux-form-website-template": "^1.0.7",
-    "reselect": "^4.0.0"
+    "reselect": "^4.0.0",
+    "reselect-tools": "^0.0.7"
   },
   "scripts": {
     "start": "react-scripts start",

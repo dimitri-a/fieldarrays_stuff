@@ -1,15 +1,19 @@
-import React, { Fragment } from "react"
+import React, { Fragment } from "react";
 import RowComponent from "./RowComponent";
-import * as selectors from "../selectors/sumSelector";
-import {
-  Field,
-} from "redux-form";
+
+import { registerSelectors } from "reselect-tools";
+
+import * as selectors from "../selectors/selectors_all";
+
+import { getCurrentAdjustedEbitda } from "../selectors/selectors_all";
 import { connect } from "react-redux";
+
+registerSelectors(selectors);
 
 class RowsContainer extends React.Component {
   render() {
-    const { fields ,t1,testItems} = this.props;
-    debugger
+    const { fields, getEb } = this.props;
+
 
     return (
       <Fragment>
@@ -21,33 +25,22 @@ class RowsContainer extends React.Component {
             <RowComponent row={name} fields={fields} index={index} />
           ))}
         </ul>
-
-        
-        Total amount1 = {t1}
-
-        testItems: {testItems}
-
-
+        getEb: {getEb}
       </Fragment>
     );
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    sum: selectors.sumAmounts(state),
-    t1: selectors.totalAmount1(state),
-    testItems:selectors.getAllItems(state)
-  };
-};
 
-const mapDispatchToProps = {
-  //change
-};
+const mapStateToProps = state => ({
+  getEb: getCurrentAdjustedEbitda(state)
+});
 
-connect({
-  mapStateToProps,
-  mapDispatchToProps
-})(RowsContainer);
 
-export default RowsContainer;
+
+RowsContainer = connect(
+    mapStateToProps,
+    undefined
+  )(RowsContainer)
+
+  export default RowsContainer;

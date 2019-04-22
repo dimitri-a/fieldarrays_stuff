@@ -4,44 +4,31 @@ import {
   FieldArray,
   reduxForm,
   getFormValues,
-  change
+  change,
+  
 } from "redux-form";
-import { connect } from "react-redux";
-import * as selectors from "../selectors/sumSelector";
+
+
+
 import RowsContainer from './RowsContainer'
 
 
 class FieldArraysForm extends Component {
   render() {
-    const { handleSubmit } = this.props;
+    const { handleSubmit ,stuff} = this.props;
+
+    console.log(stuff)
 
     return (
       <form onSubmit={handleSubmit}>
         <FieldArray name="items" component={RowsContainer} />
+
       </form>
     );
   }
 }
 
 
-
-// const mapStateToProps = state => {
-//   return {
-//     sum: selectors.sumAmounts(state),
-//     // t1: selectors.totalAmount1(state)
-//   };
-// };
-
-// const mapDispatchToProps = {
-//   change
-// };
-
 export default reduxForm({
   form: "fieldArraysForm"
 })( FieldArraysForm)
-
-//   connect(
-//     mapStateToProps,
-//     mapDispatchToProps
-//   )(FieldArraysForm)
-// );
