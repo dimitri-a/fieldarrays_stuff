@@ -2,29 +2,39 @@
 // import { formValueSelector } from "redux-form";
 import { createSelector } from "reselect";
 
-
-
 // const selector = formValueSelector("fieldArraysForm");
 
-export const getAdjustments = state => {
+export const getItems = state => {
   const form = state.form.fieldArraysForm;
   if (form && form.values && form.values.items) {
-    console.log(form)
+    console.log("selector getItems =", form.values.items);
     return form.values.items;
   }
   return undefined;
 };
 
-export const getCurrentAdjustedEbitda = createSelector(
-  getAdjustments,
-  (adjustments = []) => currentAdjustedEbitda(adjustments)
+export const getTotalAmount1 = createSelector(
+  getItems,
+  (items = []) => sumItems(items)
 );
 
-export function currentAdjustedEbitda(adjustments) {
-  return 100
-  }
-  
-  
+// export function sumItems(items) {
+
+//   const test = items.reduce((sum, item) => {
+//     return sum + Number(item.amount1);
+//   });
+
+//   console.log("selector sumItems = ", test);
+//   return test;
+// }
+
+export function sumItems(items) {
+  if (!items) return;
+  if (items.length < 1) return;
+  return items.reduce((sum, item) => {
+    return sum + Number(item.amount1);
+  }, 0);
+}
 
 // export const getForm = state => {
 //   console.log(state.fieldArraysForm)
@@ -40,7 +50,6 @@ export function currentAdjustedEbitda(adjustments) {
 //     return undefined;
 //   };
 
-  
 // export const getValues = state => state.form
 
 // export const getAmount1 = state => selector(state.items[0].amount1);
@@ -55,7 +64,7 @@ export function currentAdjustedEbitda(adjustments) {
 //     debugger
 //     return selector("items")
 // }
-// 
+//
 
 // export const totalAmount1 = createSelector(
 //     getAllItems,
@@ -64,11 +73,6 @@ export function currentAdjustedEbitda(adjustments) {
 //         items.reduce(
 //             (sum, item) => sum + Number(item.amount1), 0)
 // )
-
-
-
-
-
 
 // export const sumAmounts = state => {
 //     const test = sum(getAmount1(state), getAmount2(state))
