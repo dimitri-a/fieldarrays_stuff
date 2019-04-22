@@ -1,13 +1,10 @@
 import { createSelector } from "reselect";
-import {totalAmount1, totalAmount2} from '../calculations/calculationHelper'
+import { totalAmount1, totalAmount2 } from "../calculations/calculationHelper";
+import { formValueSelector } from "redux-form";
 
 export const getItems = state => {
-  const form = state.form.fieldArraysForm;
-  if (form && form.values && form.values.items) {
-    console.log("selector getItems =", form.values.items);
-    return form.values.items;
-  }
-  return undefined;
+  const selector = formValueSelector("fieldArraysForm");
+  return selector(state, "items");
 };
 
 export const getTotalAmount1 = createSelector(
